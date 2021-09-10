@@ -35,7 +35,7 @@ namespace Avanade.AllocationMonitor.Mvc.Controllers
             return View();
         }
 
-        // POST: TicketsController/Create
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(DipendentiCreateViewModel dipendente)
@@ -56,6 +56,19 @@ namespace Avanade.AllocationMonitor.Mvc.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Details(int id)
+        {
+            if (id <= 0)
+                return View("Error");
+
+            var model = bl.GetDipendenteById(id);
+
+            if (model == null)
+                return View("Error");
+
+            return View(model);
         }
     }
 }
