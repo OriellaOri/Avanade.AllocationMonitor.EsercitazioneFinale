@@ -1,0 +1,23 @@
+﻿@model Avanade.AllocationMonitor.Core.Entities.Dipendente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1><i class="fas fa-users"></i> Eliminazione di @Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Cognome) </h1>
+<body class="ml-2 mr-2">
+    <div class="p-4" style="border:1px solid grey; border-radius:10px">
+        <h1><i class="fas fa-exclamation-triangle"></i> Attenzione!</h1>
+        <p>
+            Questa operazione eseguirà la rimozione del record corrente dal database applicativo.
+            L'operazione non può essere in nessun modo annullata e idati non saranno più recuperabili.
+            Sei veramente sicur* di voler procedere?
+        </p>
+    </div>
+    <form asp-action="Delete" class="mt-2">
+        <input type="submit" value="Elimina" class="btn btn-outline-danger" />
+        <a class="btn btn-outline-secondary " asp-action="Index">Annulla</a>
+    </form>
+</body>
+
+

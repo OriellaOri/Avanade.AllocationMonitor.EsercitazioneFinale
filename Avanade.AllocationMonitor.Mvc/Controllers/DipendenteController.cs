@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Avanade.AllocationMonitor.Mvc.Models;
+using Microsoft.AspNetCore.Http;
+using Avanade.AllocationMonitor.Core.Entities;
 
 namespace Avanade.AllocationMonitor.Mvc.Controllers
 {
@@ -92,6 +94,39 @@ namespace Avanade.AllocationMonitor.Mvc.Controllers
                     return View("Error");
 
                 var result = bl.UpdateDipendente(dipendente.ToDipendente());
+
+                if (result == null)
+                    return View("Error");
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            if (id <= 0)
+                return View("Error");
+
+            var model = bl.GetDipendenteById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, IFormCollection data)
+        {
+            try
+            {
+                if (id <= 0)
+                    return View("Error");
+
+                Dipendente dipendeteCanellare = bl.GetDipendenteById(id);
+                var result = bl.DeleteDipendente(dipendeteCanellare);
 
                 if (result == null)
                     return View("Error");
