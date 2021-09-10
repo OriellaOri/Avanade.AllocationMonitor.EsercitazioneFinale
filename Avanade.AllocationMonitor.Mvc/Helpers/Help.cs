@@ -1,5 +1,6 @@
 ﻿using Avanade.AllocationMonitor.Core.Entities;
 using Avanade.AllocationMonitor.Mvc.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +52,7 @@ namespace Avanade.AllocationMonitor.Mvc.Helpers
                 DataNascita = d.DataNascita,
                 DataInizioProfessione = d.DataInizioProfessione,
                 CostoOrario = d.CostoOrario,
-                Mansione = new Mansione { Id=1, Nome=d.Mansione }
+                Mansione = new Mansione { Id = 1, Nome = d.Mansione }
             };
         }
 
@@ -68,6 +69,34 @@ namespace Avanade.AllocationMonitor.Mvc.Helpers
                 CostoOrario = d.CostoOrario,
                 Mansione = d.Mansione.Nome
             };
+        }
+
+
+        public static ClientiListViewModel ToViewModel(this Cliente cliente)
+        {
+            return new ClientiListViewModel
+            {
+                Id = cliente.Id,
+                Nome = cliente.Nome,
+                Citta = cliente.Citta,
+                Regione = cliente.Regione,
+                Provincia = cliente.Provincia,
+                Dimensione = cliente.Dimensione,
+                NomeRiferimento = cliente.NomeRiferimento,
+                EmailRiferimento = cliente.EmailRiferimento
+            };
+        }
+
+
+        public static IEnumerable<ClientiListViewModel> ToViewModel(this IEnumerable<Cliente> clienti)
+        {
+            return clienti.Select(c => c.ToViewModel());
+        }
+
+        public static IEnumerable<SelectListItem> EnumToSelectList<T>() where T : struct
+        {
+            return (Enum.GetValues(typeof(T)).Cast<T>().Select(
+                e => new SelectListItem() { Text = e.ToString(), Value = e.ToString() })).ToList();
         }
     }
 }
