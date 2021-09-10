@@ -1,14 +1,14 @@
 ﻿using Avanade.AllocationMonitor.Core.Entities;
+using Avanade.AllocationMonitor.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Avanade.AllocationMonitor.Mvc.Models
 {
-    public class DipendentiListViewModel
+    public class DipendentiCreateViewModel
     {
         public int? Id { get; set; }
 
@@ -25,17 +25,16 @@ namespace Avanade.AllocationMonitor.Mvc.Models
         public string Email { get; set; }
 
         [Required]
-        [DisplayName("Data di Nascita ")]
-        public string DataNascita { get; set; }
+        public DateTime DataNascita { get; set; }
 
         [Required]
-        public string DataInizioProfessione { get; set; }
+        public DateTime DataInizioProfessione { get; set; }
 
         [Required]
         [Range(0, double.MaxValue)]
         public double CostoOrario { get; set; }
 
-        [DisplayName("Mansione")]
-        public string NomeMansione { get; set; }
+        //[Required]
+        public virtual string Mansione { get; set; }
     }
 }

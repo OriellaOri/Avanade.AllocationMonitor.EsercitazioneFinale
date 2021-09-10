@@ -41,6 +41,19 @@ namespace Avanade.AllocationMonitor.Mvc.Helpers
             return dipendenti.Select(d => d.ToViewModel());
         }
 
+        public static Dipendente ToDipendente(this DipendentiCreateViewModel d)
+        {
+            return new Dipendente
+            {
+                Nome = d.Nome,
+                Cognome = d.Cognome,
+                Email = d.Email,
+                DataNascita = d.DataNascita,
+                DataInizioProfessione = d.DataInizioProfessione,
+                CostoOrario = d.CostoOrario,
+                Mansione = new Mansione { Id=1, Nome=d.Mansione }
+            };
+        }
     }
 }
 
