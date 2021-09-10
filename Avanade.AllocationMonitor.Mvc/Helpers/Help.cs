@@ -54,6 +54,21 @@ namespace Avanade.AllocationMonitor.Mvc.Helpers
                 Mansione = new Mansione { Id=1, Nome=d.Mansione }
             };
         }
+
+        public static DipendentiCreateViewModel ToEditViewModel(this Dipendente d)
+        {
+            return new DipendentiCreateViewModel
+            {
+                Id = d.Id,
+                Nome = d.Nome,
+                Cognome = d.Cognome,
+                Email = d.Email,
+                DataNascita = d.DataNascita,
+                DataInizioProfessione = d.DataInizioProfessione,
+                CostoOrario = d.CostoOrario,
+                Mansione = d.Mansione.Nome
+            };
+        }
     }
 }
 

@@ -70,5 +70,38 @@ namespace Avanade.AllocationMonitor.Mvc.Controllers
 
             return View(model);
         }
+
+        // GET
+        public ActionResult Edit(int id)
+        {
+            if (id <= 0)
+                return View("Error");
+
+            var model = bl.GetDipendenteById(id);          
+
+            return View(model.ToEditViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, DipendentiCreateViewModel dipendente)
+        {
+            try
+            {
+                if (dipendente == null)
+                    return View("Error");
+
+                var result = bl.UpdateDipendente(dipendente.ToDipendente());
+
+                if (result == null)
+                    return View("Error");
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
