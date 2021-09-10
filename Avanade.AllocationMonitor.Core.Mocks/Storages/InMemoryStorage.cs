@@ -69,7 +69,7 @@ namespace Avanade.AllocationMonitor.Core.Mocks.Storages
                 CostoOrario = 10, 
                 DataInizioProfessione = new DateTime(1999, 1,1), 
                 DataNascita = new DateTime(1977, 1, 1), 
-                Mansione = null
+                Mansione = new Mansione { Id=1, Nome="Developer"}
             });
             instance.GenerateIdentityAndPush(i => i.Dipendenti, new Dipendente
             {
@@ -79,7 +79,7 @@ namespace Avanade.AllocationMonitor.Core.Mocks.Storages
                 CostoOrario = 10,
                 DataInizioProfessione = new DateTime(1999, 1, 1),
                 DataNascita = new DateTime(1977, 1, 1),
-                Mansione = null
+                Mansione = new Mansione { Id = 1, Nome = "Developer" }
             });
             instance.GenerateIdentityAndPush(i => i.Dipendenti, new Dipendente
             {
@@ -89,7 +89,7 @@ namespace Avanade.AllocationMonitor.Core.Mocks.Storages
                 CostoOrario = 10,
                 DataInizioProfessione = new DateTime(1999, 1, 1),
                 DataNascita = new DateTime(1977, 1, 1),
-                Mansione = null
+                Mansione = new Mansione { Id = 2, Nome = "Manager" }
             });
             #endregion
 

@@ -2,7 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-left" style="border:5px solid black; margin:10%">
+    <h1 s>Benvenuta aggiugnere nome utente</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+        nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</div>
+<div class="text-center" style="margin:10%">
+    <a class="btn btn-outline-secondary btn-lg" asp-area="" asp-controller="Timesheets" asp-action="Index" role="button">
+        <i class="far fa-calendar-alt" style="font-size:80px"></i>
+        <p>Timesheets</p>
+    </a>
+    <a class="btn btn-outline-secondary btn-lg" asp-area="" asp-controller="Clienti" asp-action="Index" role="button">
+        <i class="fas fa-industry" style="font-size:80px"></i>
+        <p>Clienti</p>
+    </a>
+    <a class="btn btn-outline-secondary btn-lg" asp-area="" asp-controller="Statistiche" asp-action="Index" role="button">
+        <i class="fas fa-chart-area" style="font-size:80px"></i>
+        <p>Statistiche</p>
+    </a>
 </div>
