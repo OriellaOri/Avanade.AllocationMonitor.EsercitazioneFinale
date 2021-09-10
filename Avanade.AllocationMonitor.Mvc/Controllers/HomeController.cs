@@ -20,6 +20,7 @@ namespace Avanade.AllocationMonitor.Mvc.Controllers
             _logger = logger;
         }
 
+        // quando arrivo in Index deve caricare la persona loggata 
         public IActionResult Index()
         {
             return View();
